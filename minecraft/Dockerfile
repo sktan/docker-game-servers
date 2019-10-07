@@ -18,6 +18,7 @@ RUN mkdir -p /opt/minecraft && \
     chmod 700 -R /opt/minecraft-scripts && \
     curl -o /opt/server.jar $(curl -qs $(curl -qs https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r '.versions[0].url') | jq -r '.downloads.server.url') && \
     adduser  --disabled-password --gecos '' --home /opt/minecraft minecraft && \
+    chown -R minecraft:minecraft /opt/minecraft-scripts && \
     chown -R minecraft:minecraft /opt/minecraft && \
     chown -R minecraft:minecraft /opt/server.jar && \
     echo "eula=true" > /opt/minecraft/eula.txt
