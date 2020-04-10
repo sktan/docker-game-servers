@@ -15,7 +15,7 @@ RUN curl -o /tmp/terraria.zip ${TERRARIA_DOWNLOAD} && \
 
 ADD terraria.sh $TERRARIA_LOCATION/terraria.sh
 
-RUN chown terraria:terraria -R ${TERRARIA_HOME}
+RUN chown terraria:terraria -R ${TERRARIA_HOME} && chmod 700 $TERRARIA_LOCATION/terraria.sh
 
 USER terraria
 WORKDIR $TERRARIA_LOCATION
