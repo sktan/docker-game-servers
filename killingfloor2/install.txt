@@ -1,0 +1,7 @@
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+@sSteamCmdForcePlatformType linux
+login anonymous
+force_install_dir /home/steam/kf2
+app_update 232130 validate
+quit
