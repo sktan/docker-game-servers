@@ -23,7 +23,6 @@ RUN df -h && cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/inst
 
 WORKDIR ${SERVER}
 
-
 ADD --chown=steam:steam server.sh $SERVER/server.sh
 ADD --chown=steam:steam configs/* KFGame/Config/
 
