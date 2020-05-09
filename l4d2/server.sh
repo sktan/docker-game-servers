@@ -12,7 +12,7 @@ replace_config "sm_cvar survivor_friendly_fire_factor_expert" "${L4D2_FRIENDLYFI
 replace_config "hostname" "${L4D2_HOSTNAME}"
 replace_config "rcon_password" "${L4D2_RCON}"
 
-replace_config "mp_gamemode" "${L4D2_GAMEMODE}"
+replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 
 replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
 
