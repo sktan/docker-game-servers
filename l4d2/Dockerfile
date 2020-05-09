@@ -11,8 +11,7 @@ ENV L4D2_MAP="c1m1_hotel" \
     L4D2_HOSTNAME="My L4D2 Server" \
     L4D2_FRIENDLYFIRE="1" \
     L4D2_PLAYERS=4 \
-    L4D2_DIFFICULTY="Hard" \
-    L4D2_IP="0.0.0.0"
+    L4D2_DIFFICULTY="Hard"
 
 RUN yum install -y curl tar shadow-utils libgcc.i686 glibc.i686 libc6 gzip
 RUN useradd steam && mkdir -p $SERVER && mkdir -p $STEAMCMD && chown steam:steam $HOME -R
