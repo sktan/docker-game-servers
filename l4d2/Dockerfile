@@ -30,5 +30,6 @@ ADD --chown=steam:steam configs/* $SERVER/left4dead2/cfg/
 RUN chmod 700 $SERVER/server.sh
 
 EXPOSE 27015/udp
+EXPOSE 27015/tcp
 
 ENTRYPOINT [ "./server.sh" ]
