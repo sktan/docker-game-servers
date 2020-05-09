@@ -8,7 +8,6 @@ ENV STEAMCMD $HOME/steamcmd
 ENV L4D2_MAP="c1m1_hotel" \
     L4D2_GAMEMODE="coop" \
     L4D2_RCON="MyRconPassword" \
-    L4D2_PASSWORD="MyJoinPassword" \
     L4D2_HOSTNAME="My L4D2 Server" \
     L4D2_FRIENDLYFIRE="1" \
     L4D2_PLAYERS=4 \
