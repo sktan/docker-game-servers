@@ -15,4 +15,6 @@ replace_config "rcon_password" "${L4D2_RCON}"
 
 replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 
+replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
+
 ./srcds_run -console -game left4dead2 -secure +maxplayers "${L4D2_PLAYERS}" +map "${L4D2_MAP}"
