@@ -16,4 +16,4 @@ replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 
 replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
 
-./srcds_run -console -game left4dead2 -debug -insecure +maxplayers "${L4D2_PLAYERS}" +map "${L4D2_MAP}"
+./srcds_run -console -game left4dead2 -insecure +maxplayers "${L4D2_PLAYERS}" +map "${L4D2_MAP}"

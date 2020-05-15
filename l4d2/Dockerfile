@@ -27,7 +27,8 @@ WORKDIR ${SERVER}
 ADD --chown=steam:steam server.sh $SERVER/server.sh
 ADD --chown=steam:steam configs/* $SERVER/left4dead2/cfg/
 
-RUN curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6488-linux.tar.gz | tar -vxz -C left4dead2
+RUN curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6488-linux.tar.gz | tar -vxz -C left4dead2 && \
+    curl -s https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar -xzv -C left4dead2
 
 RUN chmod 700 $SERVER/server.sh
 
