@@ -13,7 +13,7 @@ ENV L4D2_MAP="c1m1_hotel" \
     L4D2_PLAYERS=4 \
     L4D2_DIFFICULTY="Hard"
 
-RUN yum install -y curl tar shadow-utils libgcc.i686 glibc.i686 libc6 gzip
+RUN yum install -y curl tar shadow-utils libgcc.i686 glibc.i686 libc6 gzip git
 RUN useradd steam && mkdir -p $SERVER && mkdir -p $STEAMCMD && chown steam:steam $HOME -R
 
 USER steam
@@ -27,8 +27,12 @@ WORKDIR ${SERVER}
 ADD --chown=steam:steam server.sh $SERVER/server.sh
 ADD --chown=steam:steam configs/* $SERVER/left4dead2/cfg/
 
-RUN curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6488-linux.tar.gz | tar -vxz -C left4dead2 && \
-    curl -s https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar -xzv -C left4dead2
+RUN mkdir -p $HOME/mods/{sourcemod_base,zonemod} && \
+    # Basic Sourcemod
+    curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6488-linux.tar.gz | tar -vxz -C $HOME/mods/sourcemod_base && \
+    curl -s https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar -xzv -C $HOME/mods/sourcemod_base && \
+    # Zonemod
+    git clone https://github.com/SirPlease/L4D2-Competitive-Rework.git $HOME/mods/zonemod
 
 RUN chmod 700 $SERVER/server.sh
 
