@@ -5,9 +5,9 @@ replace_config() {
 }
 
 if [ "${L4D2_GAMEMODE}" == "versus" ]; then
-  cp -rf "$HOME/mods/zonemod/*" "$SERVER/left4dead2/"
+  cp -rf $HOME/mods/zonemod/* $SERVER/left4dead2/
 else
-  cp -rf "$HOME/mods/sourcemod_base/*" "$SERVER/left4dead2/"
+  cp -rf $HOME/mods/sourcemod_base/* $SERVER/left4dead2/
 fi
 
 replace_config "sm_cvar survivor_friendly_fire_factor_easy" "${L4D2_FRIENDLYFIRE}"
