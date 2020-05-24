@@ -2,8 +2,8 @@ FROM amazonlinux:latest
 LABEL maintainer="Steven Tan <git@sktan.com>"
 
 ENV TERRARIA_HOME /home/terraria
-ENV TERRARIA_DOWNLOAD https://terraria.org/system/dedicated_servers/archives/000/000/037/original/terraria-server-1403.zip?1590018631
-ENV TERRARIA_LOCATION $TERRARIA_HOME/1403/Linux/
+ENV TERRARIA_DOWNLOAD https://terraria.org/system/dedicated_servers/archives/000/000/038/original/terraria-server-1404.zip?1590253816
+ENV TERRARIA_LOCATION $TERRARIA_HOME/1404/Linux/
 ENV TERRARIA_PASSWORD test123
 
 RUN yum install curl unzip zip shadow-utils glibc.i686 libc6 gcc libgcc.i686 -y && \
