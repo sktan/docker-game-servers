@@ -1,31 +1,20 @@
-FROM ubuntu:18.04
+FROM amazoncorretto:15
 LABEL maintainer="Steven Tan <git@sktan.com>"
 
-ENV CORRETTO_URL https://d3pxv6yz143wms.cloudfront.net/8.222.10.1/java-1.8.0-amazon-corretto-jdk_8.222.10-1_amd64.deb
-
-# Install Base Requirements
-RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
-    DEBIAN_FRONTEND=noninteractive apt-get install -y curl gnupg2 java-common jq && \
-    curl ${CORRETTO_URL} -O && \
-    dpkg --install java-*.deb && \
-    java -version
-
-# Add scripts to manage minecraft server
-ADD scripts /opt/minecraft-scripts
-
 # Setup Minecraft Server
-RUN mkdir -p /opt/minecraft && \
-    chmod 700 -R /opt/minecraft-scripts && \
+RUN yum install -y curl jq shadow-utils && \
+    mkdir -p /opt/minecraft && \
     curl -o /opt/server.jar $(curl -qs $(curl -qs https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r '[.versions[]|select(.type=="release")][0].url') | jq -r '.downloads.server.url') && \
-    adduser  --disabled-password --gecos '' --home /opt/minecraft minecraft && \
-    chown -R minecraft:minecraft /opt/minecraft-scripts && \
+    useradd -m -d /opt/minecraft minecraft && \
     chown -R minecraft:minecraft /opt/minecraft && \
     chown -R minecraft:minecraft /opt/server.jar && \
-    echo "eula=true" > /opt/minecraft/eula.txt
+    echo "eula=true" > /opt/minecraft/eula.txt && \
+    yum remove shadow-utils -y
 
 WORKDIR /opt/minecraft
 USER minecraft
 
 EXPOSE 25565
 
-ENTRYPOINT ["/opt/minecraft-scripts/minecraft.sh"]
+ENTRYPOINT [ "java" ]
+CMD [ "-XX:+UseShenandoahGC", "-Xms2048M", "-Xmx2048M", "-jar", "/opt/server.jar", "nogui" ]
