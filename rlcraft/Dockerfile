@@ -21,12 +21,12 @@ RUN unzip -q rlcraft.zip && rm -rf rlcraft.zip && \
 FROM amazoncorretto:8
 
 RUN yum install -y shadow-utils && \
-    useradd -m -d /opt/minecraft minecraft
+    useradd -m -d /opt/rlcraft minecraft
 
 COPY --from=base --chown=minecraft:minecraft /opt/minecraft/ /opt/rlcraft/
 
 RUN echo "eula=true" > /opt/rlcraft/eula.txt && \
-    chown -R minecraft:minecraft /opt/minecraft
+    chown -R minecraft:minecraft /opt/rlcraft
 
 WORKDIR /opt/rlcraft
 USER minecraft
