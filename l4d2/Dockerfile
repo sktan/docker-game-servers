@@ -29,8 +29,8 @@ ADD --chown=steam:steam configs/* $SERVER/left4dead2/cfg/
 
 RUN mkdir -p $HOME/mods/{sourcemod_base,zonemod} && \
     # Basic Sourcemod
-    curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6488-linux.tar.gz | tar -vxz -C $HOME/mods/sourcemod_base && \
-    curl -s https://mms.alliedmods.net/mmsdrop/1.10/mmsource-1.10.7-git971-linux.tar.gz | tar -xzv -C $HOME/mods/sourcemod_base && \
+    curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6529-linux.tar.gz | tar -vxz -C $HOME/mods/sourcemod_base && \
+    curl -s https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1145-linux.tar.gz | tar -xzv -C $HOME/mods/sourcemod_base && \
     # Zonemod
     git clone https://github.com/SirPlease/L4D2-Competitive-Rework.git $HOME/mods/zonemod
 
