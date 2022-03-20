@@ -1,7 +1,11 @@
 #!/bin/bash
 
 replace_config() {
-  sed -i "s/${1} .*/${1} \"${2}\"/g" "$SERVER/left4dead2/cfg/server.cfg"
+  if grep -q "${1}" "$SERVER/left4dead2/cfg/server.cfg"; then
+    sed -i "s/${1} .*/${1} \"${2}\"/g" "$SERVER/left4dead2/cfg/server.cfg"
+  else
+    echo "${1} ${2}" >> "$SERVER/left4dead2/cfg/server.cfg"
+  fi
 }
 
 if [ "${L4D2_GAMEMODE}" == "versus" ]; then
@@ -21,5 +25,9 @@ replace_config "rcon_password" "${L4D2_RCON}"
 replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 
 replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
+[ "$L4D2_SERVER_PASSWORD" != "nopasswd" ] && replace_config "sv_password" "${L4D2_SERVER_PASSWORD}"
+
+# Install workshop collections
+[ "$L4D2_WORKSHOP_IDS" != "empty" ] && python3 $HOME/workshop.py -o "$SERVER/left4dead2/addons/workshop" $L4D2_WORKSHOP_IDS
 
 ./srcds_run -console -game left4dead2 -insecure +maxplayers "${L4D2_PLAYERS}" +map "${L4D2_MAP}"
