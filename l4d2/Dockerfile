@@ -15,7 +15,7 @@ ENV L4D2_MAP="c1m1_hotel" \
     L4D2_PLAYERS=4 \
     L4D2_DIFFICULTY="Hard" \
     L4D2_SERVER_PASSWORD="nopasswd" \
-    L4D2_WORKSHOP_IDS=${L4D2_WORKSHOP_IDS}
+    L4D2_WORKSHOP_IDS=${L4D2_WORKSHOP_IDS:-empty}
 
 RUN yum install -y curl tar shadow-utils libgcc.x86_64 glibc.x86_64 libgcc.i686 glibc.i686 libc6 gzip git python3
 RUN useradd steam && mkdir -p $SERVER && mkdir -p $STEAMCMD && chown steam:steam $HOME -R
