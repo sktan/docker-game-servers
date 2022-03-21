@@ -27,7 +27,7 @@ replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
 
 # Loop through L4D2_ADMINS variable delimited by commas and echo each variable to admins_simple.ini file
-if [ "${L4D2_ADMINS}" != "noadmins" ]; then
+if [ "${L4D2_SERVER_ADMINS}" != "noadmins" ]; then
   for i in $(echo "${L4D2_SERVER_ADMINS}" | tr "," "\n"); do
     echo "\"{i}\" \"99:z\"" >> "$SERVER/left4dead2/addons/sourcemod/configs/admins_simple.ini"
   done
