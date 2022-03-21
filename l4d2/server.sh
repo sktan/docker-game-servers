@@ -25,7 +25,13 @@ replace_config "rcon_password" "${L4D2_RCON}"
 replace_config "sm_cvar mp_gamemode" "${L4D2_GAMEMODE}"
 
 replace_config "z_difficulty" "${L4D2_DIFFICULTY}"
-[ "$L4D2_SERVER_PASSWORD" != "nopasswd" ] && replace_config "sv_password" "${L4D2_SERVER_PASSWORD}"
+
+# Loop through L4D2_ADMINS variable delimited by commas and echo each variable to admins_simple.ini file
+if [ "${L4D2_ADMINS}" != "noadmins" ]; then
+  for i in $(echo "${L4D2_SERVER_ADMINS}" | tr "," "\n"); do
+    echo "\"{i}\" \"99:z\"" >> "$SERVER/left4dead2/addons/sourcemod/configs/admins_simple.ini"
+  done
+fi
 
 # Install workshop collections
 [ "$L4D2_WORKSHOP_IDS" != "empty" ] && python3 $HOME/workshop.py -o "$SERVER/left4dead2/addons/workshop" $L4D2_WORKSHOP_IDS
