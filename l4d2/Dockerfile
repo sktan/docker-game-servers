@@ -38,7 +38,7 @@ RUN mkdir -p $HOME/mods/{sourcemod_base,zonemod} && \
     curl -s https://sm.alliedmods.net/smdrop/1.10/sourcemod-1.10.0-git6529-linux.tar.gz | tar -vxz -C $HOME/mods/sourcemod_base && \
     curl -s https://mms.alliedmods.net/mmsdrop/1.11/mmsource-1.11.0-git1145-linux.tar.gz | tar -xzv -C $HOME/mods/sourcemod_base && \
     # Zonemod
-    git clone https://github.com/SirPlease/L4D2-Competitive-Rework.git $HOME/mods/zonemod && \
+    git clone https://github.com/sktan/L4D2-Competitive-Rework.git $HOME/mods/zonemod && \
     # Install workshop collections
     [ "$L4D2_WORKSHOP_IDS" != "empty" ] && python3 $HOME/workshop.py -o "$SERVER/left4dead2/addons/workshop" $L4D2_WORKSHOP_IDS
 
