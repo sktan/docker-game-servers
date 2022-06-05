@@ -1,4 +1,4 @@
-FROM amazoncorretto:17
+FROM amazonlinux:latest
 MAINTAINER Steven Tan <git@sktan.com>
 
 ENV HOME /home/steam
