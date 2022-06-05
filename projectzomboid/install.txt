@@ -1,0 +1,7 @@
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+@sSteamCmdForcePlatformType linux
+force_install_dir /home/steam/projectzomboid
+login anonymous
+app_update 380870 validate
+quit
