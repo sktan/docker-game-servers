@@ -35,8 +35,8 @@ ADD --chown=steam:steam workshop.py $HOME/workshop.py
 
 RUN mkdir -p $HOME/mods/{sourcemod_base,zonemod} && \
     # Basic Sourcemod
-    curl -sL https://sourcemod.net/latest.php?version=1.11&os=linux | tar -vxz -C $HOME/mods/sourcemod_base && \
-    curl -sL https://www.metamodsource.net/latest.php?version=1.11&os=linux | tar -xzv -C $HOME/mods/sourcemod_base && \
+    curl -sL 'https://sourcemod.net/latest.php?version=1.11&os=linux' | tar -vxz -C $HOME/mods/sourcemod_base && \
+    curl -sL 'https://www.metamodsource.net/latest.php?version=1.11&os=linux' | tar -xzv -C $HOME/mods/sourcemod_base && \
     # Zonemod
     git clone https://github.com/sktan/L4D2-Competitive-Rework.git $HOME/mods/zonemod && \
     # Install workshop collections
