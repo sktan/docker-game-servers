@@ -1,7 +1,7 @@
 @ShutdownOnFailedCommand 1
 @NoPromptForPassword 1
 @sSteamCmdForcePlatformType linux
+force_install_dir /home/steamrt/csgo
 login anonymous
-force_install_dir /home/steam/csgo
 app_update 740 validate
 quit
