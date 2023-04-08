@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM amazonlinux:2
 MAINTAINER Steven Tan <git@sktan.com>
 
 ENV HOME /home/steam

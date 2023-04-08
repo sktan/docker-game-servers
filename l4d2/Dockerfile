@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM amazonlinux:2
 MAINTAINER Steven Tan <git@sktan.com>
 
 ARG L4D2_WORKSHOP_IDS=empty

@@ -1,4 +1,4 @@
-FROM amazonlinux:latest
+FROM amazonlinux:2
 LABEL maintainer="Steven Tan <git@sktan.com>"
 
 ENV TERRARIA_HOME /home/terraria
