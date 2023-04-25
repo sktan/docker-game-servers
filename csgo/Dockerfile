@@ -4,6 +4,15 @@ ENV HOME /home/steamrt
 ENV SERVER $HOME/csgo
 ENV STEAMCMD $HOME/steamcmd
 
+ENV CSGO_HOSTNAME "My CSGO Server" \
+    CSGO_RCON_PASSWORD "MyRconPassword123" \
+    CSGO_JOIN_PASSWORD "" \
+    CSGO_STEAM_ACCOUNT "anonymous" \
+    CSGO_SERVER_ADMINS "" \
+    CSGO_MAP "de_dust2" \
+    CSGO_PORT 27015
+
+
 ADD steamcmd $STEAMCMD/
 RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     ./steamcmd.sh +runscript install.txt && cd .. && rm -rf $STEAMCMD
@@ -13,9 +22,8 @@ RUN curl -L 'https://sourcemod.net/latest.php?version=1.11&os=linux' | tar -vxz 
     curl -L 'https://www.metamodsource.net/latest.php?version=1.11&os=linux' | tar -xzv -C $SERVER/csgo && \
     curl -L 'https://warmod.bitbucket.io/plugins/warmod.smx' -o $SERVER/csgo/addons/sourcemod/plugins/warmod.smx
 
-EXPOSE 27015/udp
-EXPOSE 27015/tcp
-
 WORKDIR /home/steamrt/csgo
-ENTRYPOINT ["./srcds_run"]
-CMD ["-console" "-usercon" "-tickrate" "128" "+game_type" "0" "+game_mode" "1" "+mapgroup" "mg_active" "+map" "de_cache"]
+ADD --chown=steamrt:steamrt server.sh $SERVER/server.sh
+RUN chmod 700 $SERVER/server.sh
+
+ENTRYPOINT ["./server.sh"]
