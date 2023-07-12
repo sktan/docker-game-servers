@@ -1,0 +1,7 @@
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+@sSteamCmdForcePlatformType linux
+force_install_dir /home/steamrt/ets2
+login anonymous
+app_update 1948160 validate
+quit
