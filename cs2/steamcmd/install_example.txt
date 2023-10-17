@@ -1,0 +1,7 @@
+@ShutdownOnFailedCommand 1
+@NoPromptForPassword 1
+@sSteamCmdForcePlatformType linux
+force_install_dir /home/steamrt/cs2
+login <steamuser> <steampass> <steamguard>
+app_update 730 validate
+quit
