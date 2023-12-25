@@ -17,7 +17,7 @@ RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/ste
     ./steamcmd.sh +runscript install.txt && cd .. && rm -rf $STEAMCMD
 
 WORKDIR /home/steamrt/cs2/game/bin/linuxsteamrt64
-ADD --chown=steamrt:steamrt server.sh $SERVER/server.sh
-RUN chmod 700 $SERVER/server.sh
+ADD --chown=steamrt:steamrt server.sh $SERVER/game/bin/linuxsteamrt64/server.sh
+RUN chmod 700 $SERVER/game/bin/linuxsteamrt64/server.sh
 
 ENTRYPOINT ["./server.sh"]
