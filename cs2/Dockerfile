@@ -6,11 +6,11 @@ ENV HOME /home/steamrt
 ENV SERVER $HOME/cs2
 ENV STEAMCMD $HOME/steamcmd
 
-ENV CS2_HOSTNAME "My CS2 Server" \
-    CS2_RCON_PASSWORD "MyRconPassword123" \
-    CS2_JOIN_PASSWORD "" \
-    CS2_MAP "de_dust2" \
-    CS2_PORT 27015
+ENV CS2_HOSTNAME="My CS2 Server" \
+    CS2_RCON_PASSWORD="MyRconPassword123" \
+    CS2_JOIN_PASSWORD="" \
+    CS2_MAP="de_dust2" \
+    CS2_PORT=27015
 
 ADD steamcmd $STEAMCMD/
 RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
