@@ -11,7 +11,7 @@ USER palworld
 RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     ./steamcmd.sh +runscript install.txt && \
     mkdir -p /home/palworld/.steam/sdk64/ && \
-    cp /home/palworld/steamcmd/linux64/steamclient.so /home/palworld/.steam/sdk64/steamclient.so 
+    cp /home/palworld/steamcmd/linux64/steamclient.so /home/palworld/.steam/sdk64/steamclient.so
 
 WORKDIR /home/palworld/palworld
 
