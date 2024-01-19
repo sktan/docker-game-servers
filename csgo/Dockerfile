@@ -4,13 +4,13 @@ ENV HOME /home/steamrt
 ENV SERVER $HOME/csgo
 ENV STEAMCMD $HOME/steamcmd
 
-ENV CSGO_HOSTNAME "My CSGO Server" \
-    CSGO_RCON_PASSWORD "MyRconPassword123" \
-    CSGO_JOIN_PASSWORD "" \
-    CSGO_STEAM_ACCOUNT "anonymous" \
-    CSGO_SERVER_ADMINS "" \
-    CSGO_MAP "de_dust2" \
-    CSGO_PORT 27015
+ENV CSGO_HOSTNAME="My CSGO Server" \
+    CSGO_RCON_PASSWORD="MyRconPassword123" \
+    CSGO_JOIN_PASSWORD="" \
+    CSGO_STEAM_ACCOUNT="anonymous" \
+    CSGO_SERVER_ADMINS="" \
+    CSGO_MAP="de_dust2" \
+    CSGO_PORT=27015
 
 
 ADD steamcmd $STEAMCMD/
