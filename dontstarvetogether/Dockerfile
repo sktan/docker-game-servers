@@ -7,7 +7,7 @@ ENV STEAMCMD $HOME/steamcmd
 
 # libcurl workaround as our OS doesn't have any packages for this.
 RUN yum install -y curl tar gzip shadow-utils glibc.x86_64 glibc.i686 libcurl.i686 libcurl.x86_64 && \
-    ln -s /usr/lib/libcurl.so.4 /usr/lib/libcurl-gnutls.so.4 && 
+    ln -s /usr/lib/libcurl.so.4 /usr/lib/libcurl-gnutls.so.4 && \
     ln -s /usr/lib64/libcurl.so.4 /usr/lib64/libcurl-gnutls.so.4
 
 RUN useradd steam && mkdir -p $SERVER && mkdir -p $STEAMCMD && chown steam:steam $HOME -R
