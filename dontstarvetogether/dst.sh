@@ -1,10 +1,9 @@
 #!/bin/bash
 
-if [[ ! -f "~/.klei/DoNotStarveTogether/settings.ini" ]]; then
-  mkdir -p ~/.klei/DoNotStarveTogether/
-  touch ~/.klei/DoNotStarveTogether/settings.ini
-fi
+run_shared=(./dontstarve_dedicated_server_nullrenderer_x64)
+run_shared+=(-console)
+run_shared+=(-cluster "MyDediServer")
+run_shared+=(-monitor_parent_process $$)
 
-replace_config() {
-  sed -i "s/${1}=.*/${1}=${2}/g" ~/.klei/DoNotStarveTogether/settings.ini
-}
+"${run_shared[@]}" -shard Caves  | sed 's/^/Caves:  /' &
+"${run_shared[@]}" -shard Master | sed 's/^/Master: /'
