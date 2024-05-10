@@ -18,7 +18,5 @@ RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/ste
 
 WORKDIR ${SERVER}/bin
 ADD dst.sh ${SERVER}/bin/dst.sh
-RUN chmod +x ${SERVER}/bin/dst.sh
-EXPOSE 10999/udp
 
 ENTRYPOINT [ "./dst.sh" ]
