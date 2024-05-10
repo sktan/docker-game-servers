@@ -16,7 +16,7 @@ ADD install.txt $STEAMCMD/install.txt
 RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     cd $STEAMCMD && ./steamcmd.sh +runscript install.txt
 
-WORKDIR ${SERVER}/bin
-ADD dst.sh ${SERVER}/bin/dst.sh
+WORKDIR ${SERVER}/bin64
+ADD dst.sh ${SERVER}/bin64/dst.sh
 
 ENTRYPOINT [ "./dst.sh" ]
