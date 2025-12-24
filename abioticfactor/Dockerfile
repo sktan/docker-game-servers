@@ -7,6 +7,7 @@ ENV STEAMCMD="$HOME/steamcmd"
 ENV GAMEPORT=7777
 ENV QUERYPORT=27015
 ENV SERVERPASSWORD="abcd1234"
+ENV ADMINPASSWORD="admin1234"
 ENV SERVERNAME="My Abiotic Factor Server"
 
 RUN dpkg --add-architecture i386 && \
@@ -25,17 +26,15 @@ RUN cd $STEAMCMD && curl -s https://steamcdn-a.akamaihd.net/client/installer/ste
     cd .. && rm -rf $STEAMCMD
 
 WORKDIR /home/abioticserver/AbioticFactor/Binaries/Win64
-ADD --chown=abioticserver:abioticserver server.sh $HOME/AbioticFactor/Binaries/Win64/runserver.sh
-RUN chmod 700 $HOME/AbioticFactor/Binaries/Win64/runserver.sh
-
-USER abioticserver
 
 RUN curl https://raw.githubusercontent.com/Winetricks/winetricks/master/src/winetricks -o winetricks && \
     chmod +x winetricks
-
 RUN set -xe && \
 	WINEDLLOVERRIDES="mscoree,mshtml=" xvfb-run wine wineboot && \
 	xvfb-run ./winetricks -q vcrun2022 && \
     rm -f winetricks
+
+ADD --chown=abioticserver:abioticserver server.sh $HOME/AbioticFactor/Binaries/Win64/runserver.sh
+RUN chmod 700 $HOME/AbioticFactor/Binaries/Win64/runserver.sh
 
 ENTRYPOINT ["./runserver.sh"]
