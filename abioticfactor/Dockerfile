@@ -11,7 +11,7 @@ ENV ADMINPASSWORD="admin1234"
 ENV SERVERNAME="My Abiotic Factor Server"
 
 RUN dpkg --add-architecture i386 && \
-    apt update && apt install xdg-user-dirs wine64 libwine xvfb -y && \
+    apt update && apt install xdg-user-dirs wine64 libwine xvfb cabextract -y && \
     useradd -m -d /home/abioticserver abioticserver && \
     chown abioticserver:abioticserver $HOME -R && \
     apt-get clean autoclean && \
