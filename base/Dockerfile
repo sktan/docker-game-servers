@@ -30,7 +30,8 @@ WORKDIR $STEAMCMD_DIR
 RUN curl -s https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar -vxz && \
     ./steamcmd.sh +quit && \
     mkdir -p $HOME/.steam/sdk64 && ln -s $STEAMCMD_DIR/linux64/steamclient.so $HOME/.steam/sdk64/steamclient.so && \
-    mkdir -p $HOME/.steam/sdk32 && ln -s $STEAMCMD_DIR/linux32/steamclient.so $HOME/.steam/sdk32/steamclient.so && \
-    ln -s $STEAMCMD_DIR/linux64/steamclient.so /usr/lib/x86_64-linux-gnu/steamclient.so
+    mkdir -p $HOME/.steam/sdk32 && ln -s $STEAMCMD_DIR/linux32/steamclient.so $HOME/.steam/sdk32/steamclient.so
 
 USER root
+# Symlink again for other dedicated servers
+RUN ln -s $STEAMCMD_DIR/linux64/steamclient.so /usr/lib/x86_64-linux-gnu/steamclient.so
