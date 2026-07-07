@@ -2,7 +2,7 @@ FROM amazoncorretto:25
 LABEL maintainer="Steven Tan <git@sktan.com>"
 
 # Setup Minecraft Server
-RUN yum install -y curl jq shadow-utils && \
+RUN yum install -y jq shadow-utils && \
     mkdir -p /opt/minecraft && \
     curl -o /opt/server.jar $(curl -qs $(curl -qs https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r '[.versions[]|select(.type=="release")][0].url') | jq -r '.downloads.server.url') && \
     useradd -m -d /opt/minecraft minecraft && \
