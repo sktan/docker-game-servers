@@ -1,4 +1,4 @@
-FROM amazoncorretto:17
+FROM amazoncorretto:25
 LABEL maintainer="Steven Tan <git@sktan.com>"
 
 # Setup Minecraft Server
